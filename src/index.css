@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    font-family: sans-serif;
+}
+section {
+    background: url('../src/assets/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+section .container {
+    width: 90%; /* Make container flexible for smaller screens */
+    max-width: 650px; /* Limit maximum width */
+    background: #1a171573;
+    padding: 30px 25px;
+    border-radius: 10px;
+    border: 1px solid #d7d7d74e;
+    scale: 0.9;
+}
+section .top_sec {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: space-between;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #d7d7d74e;
+    margin-bottom: 40px;
+    gap: 20px; /* Add spacing for items when wrapped */
+}
+section .top_sec select {
+    width: 100%; /* Full width on small screens */
+    max-width: 250px; /* Restrict maximum width */
+    border-radius: 5px;
+    outline: none;
+    background: #a54f3a;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 18px; /* Adjust font size for smaller screens */
+}
+section .top_sec h3 {
+    font-size: 22px; /* Adjust heading size */
+    color: #fff;
+}
+section .top_sec .date {
+    width: 100%; /* Full width on small screens */
+    max-width: 250px; /* Restrict maximum width */
+}
+section .top_sec .date h4 {
+    font-size: 20px; /* Adjust date font size */
+    color: #fff;
+    text-align: center; /* Center align text for consistency */
+}
+section .prayer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 25px;
+    background: #321e1975;
+    margin-bottom: 25px;
+    color: #fff;
+    font-size: 17px;
+    border-radius: 5px;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    section {
+        height: auto; /* Allow section height to adjust to content */
+        padding: 20px 0;
+    }
+    section .container {
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+    section .top_sec {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center align stacked elements */
+    }
+    section .top_sec h3, section .top_sec h4 {
+        text-align: center; /* Center align text */
+    }
+    section .prayer {
+        flex-direction: column; /* Stack prayer details vertically */
+        text-align: center;
+        padding: 15px; /* Adjust padding */
+    }
+}
