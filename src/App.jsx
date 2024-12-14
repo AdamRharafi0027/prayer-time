@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Prayes from './Components/Prayes';
 import './App.css';
 
+import { BrowserRouter } from 'react-router-dom';
+
+
 function App() {
   const cities = [
     { name: 'Agadir', value: 'Agadir' },
@@ -68,6 +71,8 @@ function App() {
 
   return (
     <>
+    <BrowserRouter basename="/repository-name">
+    
       <section>
         <div className="container">
           <div className="top_sec">
@@ -97,6 +102,7 @@ function App() {
           <Prayes name="Isha" time={prayerTimes.Isha} />
         </div>
       </section>
+      </BrowserRouter>
     </>
   );
 }
