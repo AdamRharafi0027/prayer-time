@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Prayes from './Components/Prayes';
 import './App.css';
-
 import { BrowserRouter } from 'react-router-dom';
-
 
 function App() {
   const cities = [
@@ -26,13 +24,12 @@ function App() {
         );
         const data = await response.json();
 
-        
+        // Adjust the time with offsets
         const adjustTime = (time, offset) => {
           const [hours, minutes] = time.split(':').map(Number);
           let adjustedMinutes = minutes + offset;
           let adjustedHours = hours;
 
-         
           while (adjustedMinutes < 0) {
             adjustedMinutes += 60;
             adjustedHours -= 1;
@@ -42,21 +39,19 @@ function App() {
             adjustedHours += 1;
           }
 
-          
           if (adjustedHours < 0) adjustedHours += 24;
           if (adjustedHours >= 24) adjustedHours -= 24;
 
           return `${String(adjustedHours).padStart(2, '0')}:${String(adjustedMinutes).padStart(2, '0')}`;
         };
 
-        
         const adjustedTimings = {
-          Fajr: adjustTime(data.data.timings.Fajr, -21),        
-          Sunrise: adjustTime(data.data.timings.Sunrise, -15), 
-          Dhuhr: adjustTime(data.data.timings.Dhuhr, -10),     
-          Asr: adjustTime(data.data.timings.Asr, -5),          
-          Maghrib: adjustTime(data.data.timings.Maghrib, -5),  
-          Isha: adjustTime(data.data.timings.Isha, -10),       
+          Fajr: adjustTime(data.data.timings.Fajr, -21),
+          Sunrise: adjustTime(data.data.timings.Sunrise, -15),
+          Dhuhr: adjustTime(data.data.timings.Dhuhr, -10),
+          Asr: adjustTime(data.data.timings.Asr, -5),
+          Maghrib: adjustTime(data.data.timings.Maghrib, -5),
+          Isha: adjustTime(data.data.timings.Isha, -10),
         };
 
         setPrayerTimes(adjustedTimings);
@@ -70,9 +65,7 @@ function App() {
   }, [selectedCity]);
 
   return (
-    <>
-    <BrowserRouter basename="/repository-name">
-    
+    <BrowserRouter basename="/prayer-time">
       <section>
         <div className="container">
           <div className="top_sec">
@@ -102,8 +95,7 @@ function App() {
           <Prayes name="Isha" time={prayerTimes.Isha} />
         </div>
       </section>
-      </BrowserRouter>
-    </>
+    </BrowserRouter>
   );
 }
 
