@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Prayer Time</title>
+  </head>
+  <body dir="rtl">
+    <!-- Prayer Time App  -->
+    <section class="flex flex-col w-full h-screen relative">
+      <!-- Title -->
+      <h1 class="text-center pt-10 text-[#0089D4] font-bold text-7xl">
+        أوقات الصلاة
+      </h1>
+      <!-- Circles -->
+      <div class="circles">
+        <div
+          class="circle1 absolute rounded-full bg-[#0089D4] blur-[300px] w-100 h-100 -top-15 -right-40"
+        ></div>
+        <div
+          class="circle2 absolute rounded-full bg-[#0089D4] blur-[300px] w-100 h-100 -bottom-25 -left-40"
+        ></div>
+      </div>
+      <!-- Background Image -->
+      <div class="image-bg">
+        <img
+          src="./images//mosque-building-isolated.png"
+          alt="mosque image"
+          class="absolute w-full h-screen blur-[3px]"
+        />
+      </div>
+      <!-- Main Section -->
+      <main
+        class="relative z-50 flex flex-col w-300 h-200 m-auto items-center rounded-lg text-white border-t-5 border-[#0089D4]"
+      >
+        <div
+          class="back-bg w-full h-full bg-[#0089D4] opacity-40 absolute -z-20"
+        ></div>
+        <!-- Header -->
+        <div class="header">
+          <div class="flex w-200 mt-20 gap-6 justify-center">
+            <!-- Select City Dropdown -->
+            <select
+              name="selectCity"
+              id="selectCity"
+              class="bg-[#3DB2F1] px-15 outline-0"
+            ></select>
+            <!-- Select Country Dropdown -->
+            <select
+              name="selectCountry"
+              id="selectCountry"
+              class="bg-[#3DB2F1] px-15 outline-0"
+            >
+              <option value="morocco" selected>المغرب</option>
+              <option value="algeria">الجزائر</option>
+              <option value="tunisia">تونس</option>
+              <option value="bahrain">البحرين</option>
+              <option value="syria">سوريا</option>
+              <option value="kuwait">الكويت</option>
+            </select>
+            <button
+              id="search-button"
+              class="cursor-pointer px-5 py-3 outline-0 bg-[#0089D4] rounded-sm"
+            >
+              <svg
+                class="w-6 h-6 text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
+                />
+              </svg>
+            </button>
+          </div>
+          <!-- Display City Name -->
+          <h2 class="text-center text-2xl my-6">
+            City <span id="citySelected" class="text-6xl"></span>
+          </h2>
+        </div>
+        <!-- Body => Content -->
+        <div class="body w-250 h-100 mb-14">
+          <!-- Prayer Time Cards Container -->
+          <div
+            id="cards-container"
+            class="w-full h-full flex items-center justify-center flex-wrap gap-20 px-10"
+          >
+            <!-- Card -->
+          </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+          <button id="date-hijri" class="bg-[#0089D4] px-20 py-3 rounded-lg text-2xl">
+            
+          </button>
+        </div>
+      </main>
+    </section>
+    <!-- Script File  -->
+    <script src="app.js"></script>
+  </body>
+</html>
