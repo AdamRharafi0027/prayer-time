@@ -89,9 +89,7 @@ select_country.onchange = () => {
 };
 search_button.onclick = () => {
   let URL = `https://api.aladhan.com/v1/timingsByCity?city=${select_city.value}&country=${select_country.value}&method=2`;
-  axios
-    .get(URL)
-    .then((respone) => {
+  axios.get(URL).then((respone) => {
       let hijri_day = respone.data.data.date.hijri.weekday.ar
       let hijri_day_number = respone.data.data.date.hijri.month.days
       let hijri_month = respone.data.data.date.hijri.month.ar
